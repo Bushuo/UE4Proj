@@ -19,28 +19,25 @@ public:
 	static float AngleBetween(FVector from, FVector to);
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings")
-		int32 m_iterrations;
-
-	//UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings")
-	//TArray<TSubclassOf<AModule>> m_modules;
+	int32 _iterrations;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings")
+	int32 _attemptsForSpawning;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Settings")
-		TSubclassOf<AModule> m_startModule;
+	TSubclassOf<AModule> _startModule;
 	UPROPERTY(BlueprintReadOnly)
-		TArray<AActor*> m_dungeonModules;
+	TArray<AActor*> _dungeonModules;
 private:
-	
-
-	void MatchExits(AActor* oldE, AActor* newE);
+	void MatchExits(AActor* exit1, AActor* exit2);
 	static float Azimuth(FVector vec);
 
 protected:
+	UPROPERTY(EditDefaultsOnly, Category = "Settings")
+	TSubclassOf<AModule> _test;
 	UPROPERTY(EditDefaultsOnly, Category = "Room")
-		TSubclassOf<AModule> m_test;
-	UPROPERTY(EditDefaultsOnly, Category = "Room")
-		TArray<TSubclassOf<AModule>> m_rooms;
+	TArray<TSubclassOf<AModule>> _rooms;
 	UPROPERTY(EditDefaultsOnly, Category = "Junction")
-		TArray<TSubclassOf<AModule>> m_juncs;
+	TArray<TSubclassOf<AModule>> _juncs;
 	UPROPERTY(EditDefaultsOnly, Category = "Corridor")
-		TArray<TSubclassOf<AModule>> m_corrs;
+	TArray<TSubclassOf<AModule>> _corrs;
 };
